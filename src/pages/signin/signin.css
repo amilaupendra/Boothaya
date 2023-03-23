@@ -1,0 +1,43 @@
+.login-form-div{
+    display: flex;
+    justify-content: center; /* horizontally center the form */
+    align-items: center; /* vertically center the form */
+}
+
+.login-form{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content; /* set the width of the form to fit the content */
+    padding: 20px;
+    border-radius: 30px;
+    color: white;
+    background-color:#43B14B;
+    box-shadow: 1px 1px 1px grey ;
+}
+
+.login-form label{
+    text-align: center;
+}
+
+.login-form input{
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border-color: #43B14B;
+    border-style: solid;
+    outline: none;
+}
+
+.login-form button{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border-color: #43B14B;
+    border-style: solid;
+}
+
+a{
+    text-align: center;
+    font-size: 11px;
+    color: white;
+}
