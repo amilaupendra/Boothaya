@@ -21,7 +21,7 @@ export default function SignIn() {
         <label htmlFor="password">Password</label>
         <input type="password" id="password" name="password" />
 
-        <button type="button" class="btn btn-light">Sign In</button>
+        <button type="button" className="btn btn-light">Sign In</button>
 
         <Link to="/signup"> Create Account</Link>
       </Form>

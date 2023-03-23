@@ -2,15 +2,22 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import "./signup.css";
 import { useState } from "react";
+import Axios from "axios";
+
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const display =()=>{
-    console.log(email,username,password);
-  }
+  const addUser = () => {
+    Axios.post("http://localhost:4000/create", {
+      email: email, 
+      username: username, 
+      password: password,}).then(() => {
+        console.log("success");
+      });
+  };
 
   return (
     <div className="signup-form-div">
@@ -44,7 +51,7 @@ export default function SignUp() {
             }} id="password" name="password" />
         </div>
 
-        <button type="button" class="btn btn-light">
+        <button type="button" onClick={addUser} className="btn btn-light">
           Sign Up
         </button>
       </Form>
