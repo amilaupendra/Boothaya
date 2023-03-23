@@ -1,6 +1,7 @@
 import React from "react";
 import "./signin.css";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { textAlign } from "@mui/system";
 
 export default function SignIn() {
@@ -10,9 +11,9 @@ export default function SignIn() {
     }
 
   return (
-    <div className="login-form-div">
-      <Form className="login-form col-lg-12">
-        <h5 style={textalign}>Login</h5>
+    <div className="signin-form-div">
+      <Form className="signin-form">
+        <h5 style={textalign}>Sign In</h5>
         <hr />
         <label htmlFor="username">User name</label>
         <input type="text" id="username" name="username" />
@@ -22,7 +23,7 @@ export default function SignIn() {
 
         <button type="button" class="btn btn-light">Sign In</button>
 
-        <a href="#"> Create Account</a>
+        <Link to="/signup"> Create Account</Link>
       </Form>
     </div>
   );
