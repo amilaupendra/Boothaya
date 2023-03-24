@@ -19,6 +19,14 @@ export default function SignUp() {
       });
   };
 
+  const handleEmailChange = (event) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(event.target.value);
+    if (isValidEmail) {
+      setEmail(event.target.value);
+    }
+  };
+
   return (
     <div className="signup-form-div">
       <Form className="signup-form">
@@ -29,11 +37,14 @@ export default function SignUp() {
           <label htmlFor="email">Email</label>
           <input
             type="email"
-            onChange={(event) => {
+            /*onChange={(event) => {
               setEmail(event.target.value);
-            }}
+            }}*/
+
+            onChange={handleEmailChange}
             id="email"
             name="email"
+            required
           />
         </div>
 
@@ -41,14 +52,14 @@ export default function SignUp() {
           <label htmlFor="username">User Name</label>
           <input type="text" onChange={(event) => {
               setUsername(event.target.value);
-            }} id="username" name="username" />
+            }} id="username" name="username" required/>
         </div>
 
         <div className="signup-details">
           <label htmlFor="password">Password</label>
           <input type="password" onChange={(event) => {
               setPassword(event.target.value);
-            }} id="password" name="password" />
+            }} id="password" name="password" required />
         </div>
 
         <button type="button" onClick={addUser} className="btn btn-light">
