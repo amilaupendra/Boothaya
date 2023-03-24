@@ -3,22 +3,37 @@ import { Form } from "react-bootstrap";
 import "./signup.css";
 import { useState } from "react";
 import Axios from "axios";
-
+import SignIn from "../signin/SignIn";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate= useNavigate();
+
   const addUser = () => {
-    Axios.post("http://localhost:4000/create", {
-      email: email, 
-      username: username, 
-      password: password,}).then((response) => {
+    //input field validations
+    const isPasswordValid = password.length >= 8;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(email);
+
+    //after validation axios send api request
+    if (isValidEmail && isPasswordValid) {
+      Axios.post("http://localhost:4000/create", {
+        email: email,
+        username: username,
+        password: password,
+      }).then((response) => {
+        navigate("/SignIn");
         console.log(response);
+        
       });
+    }
   };
 
+  //email validation using reggex
   const handleEmailChange = (event) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValidEmail = emailRegex.test(event.target.value);
@@ -50,16 +65,28 @@ export default function SignUp() {
 
         <div className="signup-details">
           <label htmlFor="username">User Name</label>
-          <input type="text" onChange={(event) => {
+          <input
+            type="text"
+            onChange={(event) => {
               setUsername(event.target.value);
-            }} id="username" name="username" required/>
+            }}
+            id="username"
+            name="username"
+            required
+          />
         </div>
 
         <div className="signup-details">
           <label htmlFor="password">Password</label>
-          <input type="password" onChange={(event) => {
+          <input
+            type="password"
+            onChange={(event) => {
               setPassword(event.target.value);
-            }} id="password" name="password" required />
+            }}
+            id="password"
+            name="password"
+            required
+          />
         </div>
 
         <button type="button" onClick={addUser} className="btn btn-light">

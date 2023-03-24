@@ -17,8 +17,13 @@ export default function SignIn() {
       username: username,
       password: password,
     }).then((response) => {
-      navigate("/Home");
-      console.log(response.data);
+      if(response.data.length> 0){
+        navigate("/Home");
+        console.log(response.data);
+      }else{
+        alert("wrong password");
+      }
+
     });
   };
 
