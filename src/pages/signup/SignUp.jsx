@@ -14,8 +14,8 @@ export default function SignUp() {
     Axios.post("http://localhost:4000/create", {
       email: email, 
       username: username, 
-      password: password,}).then(() => {
-        console.log("success");
+      password: password,}).then((response) => {
+        console.log(response);
       });
   };
 
