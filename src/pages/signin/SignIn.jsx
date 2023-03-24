@@ -21,7 +21,7 @@ export default function SignIn() {
         navigate("/Home");
         console.log(response.data);
       }else{
-        alert("wrong password");
+        alert("please check username and password");
       }
 
     });
@@ -44,6 +44,7 @@ export default function SignIn() {
           onChange={(e) => {
             setUsername(e.target.value);
           }}
+          required
         />
 
         <label htmlFor="password">Password</label>
@@ -54,6 +55,7 @@ export default function SignIn() {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
+          required
         />
 
         <button type="button" className="btn btn-light" onClick={signin}>
