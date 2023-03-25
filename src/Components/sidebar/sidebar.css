@@ -1,24 +1,4 @@
-/*.sidebar-div{
-    width: fit-content;
-    height: 100vh;
-}*/
 
-.sidebar{
-    display: flex;
-    width: 100%;
-    background-color: black;
-    color: white;
-    align-items: center;
-    justify-content: start;
-    height: 80px;
-
-}
-
-.menu-bars{
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-}
 
 .nav-menu{
     background-color: #43B14B;
@@ -27,20 +7,14 @@
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 0px;
-    /* left: -100%; */
-    transition: 850ms;
-
+    left: 0;
 }
 
-/* .nav-menu.active{ 
-    left: 0;
-    transition: 350ms;
-}*/
+
 
 .nav-text{
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
