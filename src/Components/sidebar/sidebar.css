@@ -1,0 +1,11 @@
+.sidebar-div{
+    width: fit-content;
+    height: 100vh;
+}
+
+.sidebar{
+    display: flex;
+    width: 100%x;
+    background-color: yellow;
+    height: 500px;
+}

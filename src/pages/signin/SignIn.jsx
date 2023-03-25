@@ -18,7 +18,7 @@ export default function SignIn() {
       password: password,
     }).then((response) => {
       if(response.data.length> 0){
-        navigate("/Home");
+        navigate("/dashboard");
         console.log(response.data);
       }else{
         alert("please check username and password");
