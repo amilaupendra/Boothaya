@@ -6,8 +6,14 @@ import SignUp from './pages/signup/SignUp';
 import Dashboard from './pages/dashboard/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Components/sidebar/Sidebar';
+import FarmerControl from './pages/farmerControl/FarmerControl';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+
+  const location =useLocation.pathname !== ''
+
+
   return (
     <Router>
       <Navigationbar />
@@ -18,9 +24,7 @@ function App() {
       <Route exact path="/home" element={<Home />} />
       <Route exact path="/dashboard" element={<Dashboard />} />
       <Route exact path="/sidebar" element={<Sidebar />} />
-
-
-
+      <Route exact path='/farmercontrol' element={<FarmerControl />} />
       </Routes>
     </Router>
 

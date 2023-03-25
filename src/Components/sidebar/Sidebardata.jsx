@@ -11,7 +11,7 @@ import { BsFillCalculatorFill } from 'react-icons/bs';
 export const SidebarData = [
     {
         title: 'Farmer Control',
-        path: '/',
+        path: '/farmercontrol',
         icon: <AiFillSetting/>,
         cName: 'nav-text'
     },
@@ -22,7 +22,7 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Fertilizer Distribution',
+        title: 'Fertilizer',
         path: '/fertilizer',
         icon: <GiSwapBag/>,
         cName: 'nav-text'
