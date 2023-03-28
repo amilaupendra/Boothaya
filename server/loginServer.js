@@ -52,6 +52,24 @@ app.post("/signin", (req, res) => {
   );
 });
 
+// fertilizer table
+app.post("/addfertilizer", (req, res) => {
+  const fertilizername = req.body.fertilizername;
+  const fertilizerquantity = req.body.fertilizerquantity;
+
+  db.query(
+    "INSERT INTO fertilizer(fertilizer_name, fertilizer_quantity) VALUES(?,?)",
+    [fertilizername, fertilizerquantity],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Values Inserted");
+      }
+    }
+  );
+});
+
 app.listen(4000, () => {
   console.log("server is running on port 4000");
 });

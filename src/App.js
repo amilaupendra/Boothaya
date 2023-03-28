@@ -8,6 +8,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Components/sidebar/Sidebar';
 import FarmerControl from './pages/farmerControl/FarmerControl';
 import { useLocation } from 'react-router-dom';
+import Calculator from './pages/calculator/Calculator';
+import { Calculate } from '@mui/icons-material';
+import Fertilizer from './pages/fertilizer/Fertilizer';
 
 function App() {
 
@@ -24,7 +27,11 @@ function App() {
       <Route exact path="/home" element={<Home />} />
       <Route exact path="/dashboard" element={<Dashboard />} />
       <Route exact path="/sidebar" element={<Sidebar />} />
-      <Route exact path='/farmercontrol' element={<FarmerControl />} />
+      <Route exact path="/calculator" element={<Calculator />} />
+      <Route exact path="/farmercontrol" element={<FarmerControl />} />
+      <Route exact path="/fertilizer" element={<Fertilizer />} />
+
+
       </Routes>
     </Router>
 

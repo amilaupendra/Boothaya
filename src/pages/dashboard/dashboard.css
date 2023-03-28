@@ -16,3 +16,7 @@
     background-color: red;
     float: right;
 }*/
+
+.dashboard-div{
+    justify-content: flex-start;
+}

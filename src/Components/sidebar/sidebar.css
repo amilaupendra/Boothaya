@@ -1,4 +1,14 @@
+.{
+    width: 100vw;
+}
 
+.sidebar-main{
+    display: flex;
+}
+
+.sidebar-content{
+    background-color: blueviolet;
+}
 
 .nav-menu{
     background-color: #43B14B;
@@ -55,4 +65,8 @@
 
 span{
     margin-left: 16px;
+}
+
+ul {
+    list-style-type: none;
 }

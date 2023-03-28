@@ -1,4 +1,16 @@
 .farmer-control-div{
-    margin-left: 250px;
     background-color: green;
+    display: flex;
+}
+
+.farmer-control-data{
+    margin-left: 250px;
+}
+
+@media screen and(min-width: 500px){
+    .farmer-control-div{
+        color: red;
+        
+    }
+
 }
