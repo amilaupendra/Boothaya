@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import Sidebar from "../../Components/sidebar/Sidebar";
+import "./fertilizer.css";
 
 export default function Fertilizer() {
   const [fertilizername, setFertilizername] = useState("");
   const [fertilizerquantity, setFertilizerquantity] = useState("");
+  const [fertilizers, setFertilizers] = useState([]);
 
-  const navigate = useNavigate();
 
   const addfertilizer = () => {
     Axios.post("http://localhost:4000/addfertilizer", {
@@ -21,24 +22,79 @@ export default function Fertilizer() {
       }
     });
   };
+
+
+
+
+    useEffect(()=>{
+  
+      Axios.get('http://localhost:4000/fertilizers')
+      .then(res => setFertilizers(res.data))
+      .catch(err => console.log(err));
+    }, []);
+
+
+
+  
+
   return (
-    <div>
+    <div className="fertilizer-div">
+
+      <div className="sidebar-div">
+        <Sidebar />
+      </div>
+
       <div className="add-fertilizer">
         <form>
-          <input type="text" placeholder="Enter Name" 
-          onChange={(e) => {
-            setFertilizername(e.target.value);
-          }}
-          required/>
-          <input type="number" placeholder="Enter quantity"
-          onChange={(e) => {
-            setFertilizerquantity(e.target.value);
-          }}
-          required />
+          <input
+            type="text"
+            placeholder="Enter Name"
+            onChange={(e) => {
+              setFertilizername(e.target.value);
+            }}
+            required
+          />
+          <input
+            type="number"
+            placeholder="Enter quantity"
+            onChange={(e) => {
+              setFertilizerquantity(e.target.value);
+            }}
+            required
+          />
 
-          <button onClick={addfertilizer}>add</button>
+          <button onClick={addfertilizer} >add</button>
         </form>
+
+      </div>
+
+      <div className="show-fertilizer">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>fertilizer_id</th>
+              <th>fertilizer_name</th>
+              <th>fertilizer quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              fertilizers.map((data,i)=>(
+                <tr key= {i}>
+                  <td>{data.fertilizer_id}</td>
+                  <td>{data.fertilizer_name}</td>
+                  <td>{data.fertilizer_quantity}</td>
+
+                </tr>
+              ))
+            }
+            
+          </tbody>
+        </table>
       </div>
     </div>
   );
-}
+          }
+        
+          
+      
