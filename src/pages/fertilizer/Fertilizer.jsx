@@ -34,6 +34,9 @@ export default function Fertilizer() {
     }, []);
 
 
+    const deleteFertilizer=(id) =>{
+      Axios.delete(`http://localhost:4000/delete/${id}`);
+    };
 
   
 
@@ -84,6 +87,7 @@ export default function Fertilizer() {
                   <td>{data.fertilizer_id}</td>
                   <td>{data.fertilizer_name}</td>
                   <td>{data.fertilizer_quantity}</td>
+                  <td> <button onClick={()=>{deleteFertilizer(data.fertilizer_id)}}>Delete</button></td>
 
                 </tr>
               ))

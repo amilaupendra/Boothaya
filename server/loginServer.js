@@ -84,6 +84,21 @@ app.get('/fertilizers', (req,res) =>{
    })
 })
 
+//delete fertilizer
+
+app.delete('/delete/:id', (req, res)=>{
+  const id= req.params.id
+  db.query("DELETE FROM fertilizer WHERE fertilizer_id = ?",id, (err, result)=>{
+    if(err){
+      console.log("err");
+    }else{
+      res.send(result);
+    }
+  });
+});
+
+
+
 app.listen(4000, () => {
   console.log("server is running on port 4000");
 });
