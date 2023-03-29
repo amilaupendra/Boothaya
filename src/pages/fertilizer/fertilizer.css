@@ -1,8 +1,14 @@
 
 .sidebar-div{
-    margin-left: 250px;
+    /* margin-left: 250px; */
 }
 
 .fertilizer-div{
+    margin-left: 250px;
     display: flex;
+    flex-direction: column;
+}
+
+.add-fertilizer{
+    width: 100%;
 }
