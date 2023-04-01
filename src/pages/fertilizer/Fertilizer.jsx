@@ -16,7 +16,9 @@ export default function Fertilizer() {
       fertilizerquantity: fertilizerquantity,
     }).then((response) => {
       if (response.data.length > 0) {
-        console.log(response.data);
+        // console.log(response.data);
+        setFertilizers([...fertilizers, response.data[0]]);
+        console.log(response.data)
       } else {
         alert("please check fertilizername and fertilizerquntity");
       }
@@ -35,8 +37,16 @@ export default function Fertilizer() {
 
 
     const deleteFertilizer=(id) =>{
-      Axios.delete(`http://localhost:4000/delete/${id}`);
-    };
+      Axios.delete(`http://localhost:4000/delete/${id}`)
+      .then((response) => {
+        if (response.data.affectedRows > 0) {
+          setFertilizers(fertilizers.filter((fertilizer) => fertilizer.fertilizer_id !== id));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   
 
