@@ -20,6 +20,18 @@
     left: 0;
 }
 
+@media only screen and (max-width:400px){
+    .nav-menu{
+        height: fit-content;
+        width: 100%;
+    }
+
+    .sidebar-icon{
+        display: none;
+    }
+    
+}
+
 
 
 .nav-text{

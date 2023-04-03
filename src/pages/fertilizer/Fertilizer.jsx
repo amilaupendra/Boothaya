@@ -56,6 +56,8 @@ export default function Fertilizer() {
       <div className="sidebar-div">
         <Sidebar />
       </div>
+<div className="fertilzer-content">
+
 
       <div className="add-fertilizer">
         <form>
@@ -105,6 +107,7 @@ export default function Fertilizer() {
             
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );
