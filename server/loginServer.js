@@ -99,6 +99,56 @@ app.delete('/delete/:id', (req, res)=>{
 
 
 
+//------------------farmer-page-------------------
+
+//add farmer
+app.post("/addfarmer", (req, res) => {
+  const firstname= req.body.firstname;
+  const secondname = req.body.secondname;
+  const acres = req.body.acres;
+  const quantity = req.body.quantity;
+
+  db.query(
+    "INSERT INTO farmer(farmer_fname, farmer_sname, acre, fertilizer_quantity) VALUES(?,?,?,?)",
+    [firstname, secondname, acres, quantity,],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Values Inserted");
+      }
+    }
+  );
+});
+
+//delete farmer
+app.delete('/deletefarmer', (req, res)=>{
+  const id= req.body.id
+  db.query("DELETE FROM farmer WHERE farmer_id = ?",id, (err, result)=>{
+    if(err){
+      console.log("err");
+    }else{
+      res.send(result);
+    }
+  });
+});
+
+//show table farmer
+
+app.get('/showfarmers', (req,res) =>{
+  const sql= 'SELECT * FROM farmer';
+   db.query(sql, (err,data) =>{
+    if(err) {
+      res.json("error");
+    }else{
+      res.json(data)
+    }
+   })
+})
+
+
+
+
 app.listen(4000, () => {
   console.log("server is running on port 4000");
 });
