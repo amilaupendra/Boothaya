@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 
 export default function FarmerControl() {
-
   const [firstname, setFirstname] = useState("");
   const [secondname, setSecondname] = useState("");
   const [acres, setAcres] = useState("");
@@ -13,8 +12,7 @@ export default function FarmerControl() {
   const [id, setId] = useState("");
   const [farmers, setFarmers] = useState([]);
 
-
-//add farmer
+  //add farmer
   const addfarmer = (e) => {
     e.preventDefault();
     Axios.post("http://localhost:4000/addfarmer", {
@@ -24,7 +22,7 @@ export default function FarmerControl() {
       quantity: quantity,
     }).then((response) => {
       if (response.data.length > 0) {
-        console.log(response.data)
+        console.log(response.data);
         setFarmers([...farmers, response.data[0]]);
       } else {
         alert("please check there cannot be empty input fields");
@@ -32,26 +30,54 @@ export default function FarmerControl() {
     });
   };
 
-//delete farmer
-  const deletefarmer =()=>{
-    Axios.delete("http://localhost:4000/deletefarmer",{
-      data: {id : id},
-    }).then((response) =>{
-      console.log(response.data);
-      setFarmers(farmers.filter((farmer) => farmer.farmer_id !== id));
-    }
-    ).catch((error) => {
+  //delete farmer
+  const deletefarmer = () => {
+    Axios.delete("http://localhost:4000/deletefarmer", {
+      data: { id: id },
+    })
+      .then((response) => {
+        console.log(response.data);
+        setFarmers(farmers.filter((farmer) => farmer.farmer_id !== id));
+      })
+      .catch((error) => {
         console.log(error);
       });
   };
 
-  //show farmer table
-  useEffect(()=>{
-    Axios.get('http://localhost:4000/showfarmers')
-    .then(res => setFarmers(res.data))
-    .catch(err => console.log(err));
-  }, [farmers]);
+  //update farmer
 
+  const updatefarmer = () => {
+    const data = {
+      firstname: firstname,
+      secondname: secondname,
+      acres: acres,
+      quantity: quantity,
+    };
+
+    Axios.put(`http://localhost:4000/updatefarmer/${id}`, data)
+      .then((response) => {
+        console.log(response.data);
+        setFarmers(
+          farmers.map((farmer) => {
+            if (farmer.farmer_id === id) {
+              return { ...farmer, ...data };
+            }
+            return farmer;
+          })
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+        // handle error
+      });
+  };
+
+  //show farmer table
+  useEffect(() => {
+    Axios.get("http://localhost:4000/showfarmers")
+      .then((res) => setFarmers(res.data))
+      .catch((err) => console.log(err));
+  }, [farmers]);
 
   return (
     <div className="farmer-control-div">
@@ -86,39 +112,46 @@ export default function FarmerControl() {
               required
             />
 
-<input
-            type="number"
-            placeholder="quantity"
-            onChange={(e) => {
-              setQuantity(e.target.value);
-            }}
-            required
-          />
+            <input
+              type="number"
+              placeholder="quantity"
+              onChange={(e) => {
+                setQuantity(e.target.value);
+              }}
+              required
+            />
+
+            <input
+              type="text"
+              placeholder="enter id to delete"
+              onChange={(e) => {
+                setId(e.target.value);
+              }}
+            />
 
             <button onClick={addfarmer}>add</button>
-            </form>
-            <input type="text"  placeholder="enter id to delete" onChange={(e)=>{ setId(e.target.value)}}/>
-            <button onClick={deletefarmer}>delete</button>
+            <button onClick={() =>updatefarmer(id)}>update</button>
 
+            <button onClick={deletefarmer}>delete</button>
+          </form>
         </div>
 
         <div className="farmer-table-view">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>farmer id</th>
-              <th>firstn name</th>
-              <th>second name</th>
-              <th>acres</th>
-              <th>fertizer quantity</th>
-              <th>status</th>
-            </tr>
-          </thead>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>farmer id</th>
+                <th>firstn name</th>
+                <th>second name</th>
+                <th>acres</th>
+                <th>fertizer quantity</th>
+                <th>status</th>
+              </tr>
+            </thead>
 
-          <tbody>
-            {
-              farmers.map((data,i)=>(
-                <tr key= {i}>
+            <tbody>
+              {farmers.map((data, i) => (
+                <tr key={i}>
                   <td>{data.farmer_id}</td>
                   <td>{data.farmer_fname}</td>
                   <td>{data.farmer_sname}</td>
@@ -127,12 +160,10 @@ export default function FarmerControl() {
                   <td>{data.status}</td>
 
                   {/* <td> <button onClick={()=>{deleteFarmer(data.fertilizer_id)}}>Delete</button></td> */}
-
                 </tr>
-              ))
-            }
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

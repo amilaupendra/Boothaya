@@ -146,6 +146,27 @@ app.get('/showfarmers', (req,res) =>{
    })
 })
 
+//update farmer
+
+app.put('/updatefarmer/:id', (req, res) => {
+  const id = req.params.id;
+  //const { firstname, secondname, acres, quantity } = req.body;
+  const firstname= req.body.firstname;
+  const secondname = req.body.secondname;
+  const acres = req.body.acres;
+  const quantity = req.body.quantity;
+
+  db.query('UPDATE farmer SET farmer_fname = ?, farmer_sname = ?, acre = ?, fertilizer_quantity =? WHERE farmer_id = ?', 
+  [firstname, secondname,acres,quantity, id], 
+  (err, result) => {
+    if (err) {
+      res.status(400).send("Failed to update farmer");
+    } else {
+      res.status(200).send("farmer updated successfully");
+    }
+  });
+});
+
 
 
 
