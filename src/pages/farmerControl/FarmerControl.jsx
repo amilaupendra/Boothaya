@@ -25,6 +25,7 @@ export default function FarmerControl() {
     }).then((response) => {
       if (response.data.length > 0) {
         console.log(response.data)
+        setFarmers([...farmers, response.data[0]]);
       } else {
         alert("please check there cannot be empty input fields");
       }
@@ -37,7 +38,11 @@ export default function FarmerControl() {
       data: {id : id},
     }).then((response) =>{
       console.log(response.data);
-    })
+      setFarmers(farmers.filter((farmer) => farmer.farmer_id !== id));
+    }
+    ).catch((error) => {
+        console.log(error);
+      });
   };
 
   //show farmer table
@@ -45,7 +50,7 @@ export default function FarmerControl() {
     Axios.get('http://localhost:4000/showfarmers')
     .then(res => setFarmers(res.data))
     .catch(err => console.log(err));
-  }, []);
+  }, [farmers]);
 
 
   return (
