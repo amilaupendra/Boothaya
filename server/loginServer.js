@@ -108,9 +108,11 @@ app.post("/addfarmer", (req, res) => {
   const acres = req.body.acres;
   const quantity = req.body.quantity;
 
+
+  if(firstname !== "" && secondname !== ""){
   db.query(
     "INSERT INTO farmer(farmer_fname, farmer_sname, acre, fertilizer_quantity) VALUES(?,?,?,?)",
-    [firstname, secondname, acres, quantity,],
+    [firstname, secondname, acres, quantity],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -119,7 +121,7 @@ app.post("/addfarmer", (req, res) => {
       }
     }
   );
-});
+}});
 
 //delete farmer
 app.delete('/deletefarmer', (req, res)=>{
