@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Home from "../home/Home";
 import "./signin.css";
 import Axios from "axios";
 import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { textAlign } from "@mui/system";
+import { Button } from "@mui/material";
 
 export default function SignIn() {
   const [username, setUsername] = useState("");
@@ -18,9 +17,15 @@ export default function SignIn() {
       password: password,
     }).then((response) => {
       if(response.data.length> 0){
-        navigate("/dashboard");
+        navigate("/farmercontrol");
         console.log(response.data);
       }else{
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+
+        usernameInput.style.borderColor ="red";
+        passwordInput.style.borderColor ="red";
+
         alert("please check username and password");
       }
 
@@ -41,6 +46,7 @@ export default function SignIn() {
           type="text"
           id="username"
           name="username"
+          placeholder="JohnX"
           onChange={(e) => {
             setUsername(e.target.value);
           }}
@@ -58,9 +64,10 @@ export default function SignIn() {
           required
         />
 
-        <button type="button" className="btn btn-light" onClick={signin}>
+        {/* <button type="button" className="btn btn-light" onClick={signin}>
           Sign In
-        </button>
+        </button> */}
+        <Button variant="contained" color="success" onClick={signin}>Sign In</Button>
 
         <Link to="/signup"> Create Account</Link>
       </Form>

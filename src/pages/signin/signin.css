@@ -2,6 +2,11 @@
     display: flex;
     justify-content: center; /* horizontally center the form */
     align-items: center; /* vertically center the form */
+    background-image: url(../../images/img1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
 }
 
 .signin-form{
@@ -10,10 +15,10 @@
     flex-direction: column;
     width: fit-content; /* set the width of the form to fit the content */
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
     color: white;
-    background-color:#43B14B;
-    box-shadow: 1px 1px 1px grey ;
+    background-color:#ffffff57;
+    box-shadow: 3px 3px 10px grey ;
 }
 
 .signin-form label{
@@ -22,10 +27,16 @@
 
 .signin-form input{
     margin-bottom: 10px;
-    border-radius: 20px;
-    border-color: #43B14B;
+    border-radius: 10px;
+    border-color: transparent;
     border-style: solid;
+    border-width: 1px;
     outline: none;
+}
+
+input:focus{
+    border-color: rgb(52, 150, 32);
+    border-width: 1px;
 }
 
 .signin-form button{
