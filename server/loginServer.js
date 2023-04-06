@@ -170,6 +170,45 @@ app.put('/updatefarmer/:id', (req, res) => {
 });
 
 
+//----------------Distribution fertilzer --------------------------
+
+app.post('/distribute', (req, res)=>{
+  const {farmerId, fertilizerId, weight} = req.body;
+
+  db.query('INSERT INTO distribution (farmer_id, fertilizer_id, weight) VALUES (?,?,?)',
+  [farmerId, fertilizerId, weight],
+  (err, result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      db.query('UPDATE farmer SET status= ? WHERE farmer_id =?',
+      ['done',farmerId],
+      (err,result)=>{
+        if(err){
+          console.log(err);
+          res.send(err);
+        }else{
+          db.query('UPDATE fertilizer SET fertilizer_quantity = fertilizer_quantity - ? WHERE fertilizer_id= ?',
+          [weight, fertilizerId],
+          (err, result)=>{
+            if(err){
+              console.log(err);
+              res.send(err);
+            }else{
+              console.log("successfully updated fertilizer quantity");
+              res.send("Values inserted and fertilizer quantity updated")
+            }
+          })
+          console.log("status updated in farmer table");
+        }
+      });
+      // res.send("values inserted");
+    }
+
+  });
+});
+
+
 
 
 app.listen(4000, () => {

@@ -16,8 +16,8 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Payments',
-        path: '/payments',
+        title: 'Distribution',
+        path: '/distribution',
         icon: <MdPayments/>,
         cName: 'nav-text'
     },

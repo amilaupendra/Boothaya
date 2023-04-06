@@ -7,14 +7,15 @@ import Dashboard from './pages/dashboard/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Components/sidebar/Sidebar';
 import FarmerControl from './pages/farmerControl/FarmerControl';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import Calculator from './pages/calculator/Calculator';
-import { Calculate } from '@mui/icons-material';
+// import { Calculate } from '@mui/icons-material';
 import Fertilizer from './pages/fertilizer/Fertilizer';
+import Distribution from './pages/distribution/Distribution';
 
 function App() {
 
-  const location =useLocation.pathname !== ''
+  // const location =useLocation.pathname !== ''
 
 
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route exact path="/calculator" element={<Calculator />} />
       <Route exact path="/farmercontrol" element={<FarmerControl />} />
       <Route exact path="/fertilizer" element={<Fertilizer />} />
+      <Route exact path='/distribution' element={<Distribution />} />
 
 
       </Routes>
