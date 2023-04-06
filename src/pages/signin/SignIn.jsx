@@ -64,10 +64,10 @@ export default function SignIn() {
           required
         />
 
-        {/* <button type="button" className="btn btn-light" onClick={signin}>
+        <button type="button" className="btn btn-light" onClick={signin}>
           Sign In
-        </button> */}
-        <Button variant="contained" color="success" onClick={signin}>Sign In</Button>
+        </button>
+        {/* <Button variant="contained" color="success" onClick={signin}>Sign In</Button> */}
 
         <Link to="/signup"> Create Account</Link>
       </Form>

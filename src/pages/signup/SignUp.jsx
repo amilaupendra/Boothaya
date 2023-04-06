@@ -11,7 +11,7 @@ export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate= useNavigate();
+  const navigate = useNavigate();
 
   const addUser = () => {
     //input field validations
@@ -28,7 +28,6 @@ export default function SignUp() {
       }).then((response) => {
         navigate("/SignIn");
         console.log(response);
-        
       });
     }
   };
@@ -92,6 +91,20 @@ export default function SignUp() {
         <button type="button" onClick={addUser} className="btn btn-light">
           Sign Up
         </button>
+
+        <div className="rules" style={{width: "300px"}}>
+          <p style={{ fontSize: "8px" }}>
+            {" "}
+            People who use our service may have uploaded your contact
+            information to Facebook. Learn more.
+          </p>
+
+          <p style={{ fontSize: "8px" }}>
+            By clicking Sign Up, you agree to our Terms, Privacy Policy and
+            Cookies Policy. You may receive SMS notifications from us and can
+            opt out at any time.
+          </p>
+        </div>
       </Form>
     </div>
   );
