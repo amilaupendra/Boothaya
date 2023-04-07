@@ -210,6 +210,20 @@ app.post('/distribute', (req, res)=>{
 
 
 
+//show distribution table
+
+app.get('/showdistributions', (req, res)=>{
+  db.query("SELECT * FROM distribution", (err,result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.json(result);
+    }axios ax
+  })
+})
+
+
+
 
 app.listen(4000, () => {
   console.log("server is running on port 4000");

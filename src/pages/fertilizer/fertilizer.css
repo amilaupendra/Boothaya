@@ -10,8 +10,35 @@
     height: 100vh;
 }
 
-.add-fertilizer{
-    width: 100%;
+.add-fertilizer form{
+
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin: auto;
+    border-radius: 10%;
+    background-color: rgb(248, 248, 248);
+}
+
+.add-fertilizer form input{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border-color: transparent;
+    margin: 8px;
+    outline: none;
+    border-style: solid; 
+
+}
+
+.add-fertilizer form button{
+    margin: 8px;
+    border-radius: 10px;
+    border-color: #00000015;
+    border-style: solid;
+    box-shadow: 0.3px 0.5px 0px;
+    background-color: white;
 }
 
 @media only screen and (max-width: 400px){

@@ -121,6 +121,12 @@ export default function FarmerControl() {
               required
             />
 
+            <button class="btn btn-outline-success" onClick={addfarmer}>
+              add
+            </button>
+          </form>
+
+          <div className="optional-operations">
             <input
               type="text"
               placeholder="enter id to delete"
@@ -129,23 +135,26 @@ export default function FarmerControl() {
               }}
             />
 
-            <button onClick={addfarmer}>add</button>
-            <button onClick={() =>updatefarmer(id)}>update</button>
+            <button class="btn btn-outline-warning" onClick={() => updatefarmer(id)}>
+              update
+            </button>
 
-            <button onClick={deletefarmer}>delete</button>
-          </form>
+            <button class="btn btn-outline-danger" onClick={deletefarmer}>
+              delete
+            </button>
+          </div>
         </div>
 
         <div className="farmer-table-view">
-          <table className="table">
+          <table className="table table-hover">
             <thead>
               <tr>
-                <th>farmer id</th>
-                <th>firstn name</th>
-                <th>second name</th>
-                <th>acres</th>
-                <th>fertizer quantity</th>
-                <th>status</th>
+                <th>Farmer id</th>
+                <th>Firstn name</th>
+                <th>Second name</th>
+                <th>Acres</th>
+                <th>Fertizer quantity</th>
+                <th>Status</th>
               </tr>
             </thead>
 

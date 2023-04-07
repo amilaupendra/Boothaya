@@ -51,10 +51,10 @@ export default function Calculator() {
 
 
       <div className="operators-div">
-      <button className='btn btn-primary' type='submit' onClick={HandleAddition} >+</button>
-      <button className='btn btn-primary' type='submit' onClick={HandleSubstraction} >-</button>
-      <button className='btn btn-primary' type='submit' onClick={HandleMultiplication} >*</button>
-      <button className='btn btn-primary' type='submit' onClick={HandleDivision} >/</button>
+      <button class="btn btn-outline-success" type='submit' onClick={HandleAddition} >+</button>
+      <button class="btn btn-outline-success" type='submit' onClick={HandleSubstraction} >-</button>
+      <button class="btn btn-outline-success" type='submit' onClick={HandleMultiplication} >*</button>
+      <button class="btn btn-outline-success" type='submit' onClick={HandleDivision} >/</button>
 
       </div>
 
