@@ -149,11 +149,11 @@ export default function FarmerControl() {
           <table className="table table-hover">
             <thead>
               <tr>
-                <th>Farmer id</th>
-                <th>Firstn name</th>
-                <th>Second name</th>
+                <th>Farmer Id</th>
+                <th>First Name</th>
+                <th>Second Name</th>
                 <th>Acres</th>
-                <th>Fertizer quantity</th>
+                <th>Fertizer Quantity(KG)</th>
                 <th>Status</th>
               </tr>
             </thead>

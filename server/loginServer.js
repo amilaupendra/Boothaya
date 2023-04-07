@@ -218,7 +218,7 @@ app.get('/showdistributions', (req, res)=>{
       console.log(err);
     }else{
       res.json(result);
-    }axios ax
+    }
   })
 })
 

@@ -77,9 +77,10 @@ export default function Fertilizer() {
           <table className="table table-hover">
             <thead>
               <tr>
-                <th>fertilizer_id</th>
-                <th>fertilizer_name</th>
-                <th>fertilizer quantity</th>
+                <th>Fertilizer Id</th>
+                <th>Fertilizer Name</th>
+                <th>Fertilizer Quantity</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
