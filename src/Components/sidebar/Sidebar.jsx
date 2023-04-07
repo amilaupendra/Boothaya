@@ -1,18 +1,10 @@
-import React, { useState } from "react";
 import "./sidebar.css";
-import FarmerControl from "../../pages/farmerControl/FarmerControl";
-import { Calculate, Payment } from "@mui/icons-material";
 import { GiThreeLeaves } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./Sidebardata";
 import { IconContext } from "react-icons";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function Sidebar() {
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
-
   return (
     <div className="sidebar-main">
       <IconContext.Provider value={{ color: "fff" }}>

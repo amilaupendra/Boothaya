@@ -3,7 +3,6 @@ import { Form } from "react-bootstrap";
 import "./signup.css";
 import { useState } from "react";
 import Axios from "axios";
-import SignIn from "../signin/SignIn";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
@@ -29,6 +28,15 @@ export default function SignUp() {
         navigate("/SignIn");
         console.log(response);
       });
+    }else{
+      const emailInput= document.getElementById("email");
+      const passwordInput = document.getElementById("password");
+      const usernameInput = document.getElementById("username")
+      emailInput.style.border="1px solid red";
+      passwordInput.style.border="1px solid red";
+      usernameInput.style.border="1px solid red";
+
+      alert("Check username and password. username must be unique. try changing" );
     }
   };
 
@@ -51,6 +59,7 @@ export default function SignUp() {
           <label htmlFor="email">Email</label>
           <input
             type="email"
+            placeholder="john@gmail.com"
             /*onChange={(event) => {
               setEmail(event.target.value);
             }}*/
@@ -71,6 +80,7 @@ export default function SignUp() {
             }}
             id="username"
             name="username"
+            placeholder="johnx"
             required
           />
         </div>
@@ -84,6 +94,7 @@ export default function SignUp() {
             }}
             id="password"
             name="password"
+            placeholder="8 characters"
             required
           />
         </div>
@@ -95,8 +106,7 @@ export default function SignUp() {
         <div className="rules" style={{width: "300px"}}>
           <p style={{ fontSize: "8px" }}>
             {" "}
-            People who use our service may have uploaded your contact
-            information to Facebook. Learn more.
+            We do not share your any private details!
           </p>
 
           <p style={{ fontSize: "8px" }}>
