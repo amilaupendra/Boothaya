@@ -17,9 +17,14 @@ export default function SignUp() {
     const isPasswordValid = password.length >= 8;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValidEmail = emailRegex.test(email);
+    const isUsernameValid = username.length > 0;
+
+    const emailInput= document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const usernameInput = document.getElementById("username")
 
     //after validation axios send api request
-    if (isValidEmail && isPasswordValid) {
+    if (isValidEmail && isPasswordValid && isUsernameValid) {
       Axios.post("http://localhost:4000/create", {
         email: email,
         username: username,
@@ -28,16 +33,50 @@ export default function SignUp() {
         navigate("/SignIn");
         console.log(response);
       });
-    }else{
-      const emailInput= document.getElementById("email");
-      const passwordInput = document.getElementById("password");
-      const usernameInput = document.getElementById("username")
+    }else if(isPasswordValid && isUsernameValid && !isValidEmail){
+      alert("email is not valid")
       emailInput.style.border="1px solid red";
+    }else if(isValidEmail && isPasswordValid && !isUsernameValid){
+      alert("Enter a username")
+      usernameInput.style.border="1px solid red";
+      emailInput.style.border="0px solid red";
+      passwordInput.style.border="0px solid red";
+
+
+
+    }else if(isValidEmail && isUsernameValid && !isPasswordValid){
+      alert("password must be 8 character or more")
+      passwordInput.style.border="1px solid red";
+      emailInput.style.border="0px solid red";
+      usernameInput.style.border="0px solid red";
+
+
+
+
+    }else if(isValidEmail && !isUsernameValid && !isPasswordValid){
+      alert("username and password invalid")
       passwordInput.style.border="1px solid red";
       usernameInput.style.border="1px solid red";
+      emailInput.style.border="0px solid red";
 
-      alert("Check username and password. username must be unique. try changing" );
+    }else if(!isValidEmail && isUsernameValid && !isPasswordValid){
+      alert("email and password invalid")
+      passwordInput.style.border="1px solid red";
+      emailInput.style.border="1px solid red";
+      usernameInput.style.border="0px solid red";
+    }else if(!isValidEmail && !isUsernameValid && isPasswordValid){
+      alert("email and username invalid")
+      emailInput.style.border="1px solid red";
+      usernameInput.style.border="1px solid red";
+      passwordInput.style.border="0px solid red";
+
+    }else{
+      alert("invalid details")
+      emailInput.style.border="1px solid red";
+      usernameInput.style.border="1px solid red";
+      passwordInput.style.border="1px solid red";
     }
+  
   };
 
   //email validation using reggex
