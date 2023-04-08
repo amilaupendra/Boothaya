@@ -1,0 +1,34 @@
+
+
+.noticebody-div{
+    display: flex;
+    margin-left: 250px;
+}
+
+.notice-content{
+    width: 80%;
+    border-radius: 10px;
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    margin: auto;
+
+}
+
+.notice-content textarea{
+    width: 90%;
+    border-radius: 10px;
+    height: 70%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    outline: none;
+    border-color: transparent;
+}
+
+.notice-content button{
+    width: 80%;
+    margin: auto;
+}

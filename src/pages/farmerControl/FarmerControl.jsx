@@ -129,7 +129,7 @@ export default function FarmerControl() {
           <div className="optional-operations">
             <input
               type="text"
-              placeholder="enter id to delete"
+              placeholder="enter id to delete or update"
               onChange={(e) => {
                 setId(e.target.value);
               }}

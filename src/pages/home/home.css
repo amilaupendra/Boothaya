@@ -10,6 +10,11 @@
     
 }
 
+.references .references-component:hover{
+    opacity: 100%;
+    transition: opacity 0.5s ;
+}
+
 .references{
     display: flex;
     /* justify-content: space-around; */
@@ -67,4 +72,30 @@
 
 .references a{
     text-decoration: none;
+}
+
+
+.noticeboard{
+    margin: auto;
+}
+
+.noticeboard ul{
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+}
+
+.noticeboard ul li{
+    height: 100px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;
+    width: 100%;
+    justify-content: center;
+    margin: 10px;
+    transition: transform .2s;
+
+}
+
+li:hover {
+    transform: scale(1.1);
 }

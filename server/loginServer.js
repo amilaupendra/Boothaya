@@ -223,6 +223,35 @@ app.get('/showdistributions', (req, res)=>{
 })
 
 
+//-------------------------Home page notice board----------------
+
+
+app.post('/addnotice', (req,res)=>{
+  const notice_text = req.body.notice_text;
+  db.query("INSERT INTO notice (notice_text) VALUES (?)", 
+  [notice_text],
+  (err, result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      console.log("notice inserted")
+    }
+  }
+  )
+})
+
+
+
+app.get('/shownotices',(req,res)=>{
+  db.query("SELECT * FROM notice", (err, result)=>{
+    if(err){
+      console.log(err)
+    }else{
+      res.send(result)
+    }
+  })
+})
+
 
 
 app.listen(4000, () => {

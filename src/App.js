@@ -12,6 +12,7 @@ import Calculator from './pages/calculator/Calculator';
 // import { Calculate } from '@mui/icons-material';
 import Fertilizer from './pages/fertilizer/Fertilizer';
 import Distribution from './pages/distribution/Distribution';
+import Notice from './pages/notice/Notice';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
       <Route exact path="/farmercontrol" element={<FarmerControl />} />
       <Route exact path="/fertilizer" element={<Fertilizer />} />
       <Route exact path='/distribution' element={<Distribution />} />
+      <Route exact path="/notice" element={<Notice/>} />
 
 
       </Routes>

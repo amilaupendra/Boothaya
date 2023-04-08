@@ -5,7 +5,7 @@ import Sidebar from '../../Components/sidebar/Sidebar';
 export default function Calculator() {
 
   const [firstNumber, setFirstNumber] = useState("");
-  const [secondNumber, setSecondNumber] = useState(0);
+  const [secondNumber, setSecondNumber] = useState("");
   const [result, setResult] = useState(0);
 
   const HandleFirstNumberChange =(e) =>{

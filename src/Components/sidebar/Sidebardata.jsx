@@ -3,9 +3,7 @@ import { AiFillSetting } from 'react-icons/ai';
 import { MdPayments } from 'react-icons/md';
 import { GiSwapBag } from 'react-icons/gi';
 import { BsFillCalculatorFill } from 'react-icons/bs';
-
-
-
+import { AiFillNotification} from 'react-icons/ai';
 
 
 export const SidebarData = [
@@ -31,6 +29,12 @@ export const SidebarData = [
         title: 'Calculator',
         path: '/calculator',
         icon: <BsFillCalculatorFill/>,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Notice',
+        path: '/notice',
+        icon: <AiFillNotification/>,
         cName: 'nav-text'
     },
 ];

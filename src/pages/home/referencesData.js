@@ -15,7 +15,7 @@ export const referencesData =[
     },
     {   
         "index" : "2",
-        "name" : "World agri",
+        "name" : "Fertilizers",
         "url": "https://foodtank.com/news/category/sustainable-agriculture/?gclid=Cj0KCQjwocShBhCOARIsAFVYq0jHauG2m_-z3H67KgGySPqPkBWsuhxb_2EEaNU719cyXbJed63EENsaArlYEALw_wcB",
         "image" : fertilizer
 
