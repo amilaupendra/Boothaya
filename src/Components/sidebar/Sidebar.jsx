@@ -6,7 +6,7 @@ import { IconContext } from "react-icons";
 
 export default function Sidebar() {
   return (
-    <div className="sidebar-main">
+    <div className="sidebar-main" class="btn-outline-success">
       <IconContext.Provider value={{ color: "fff" }}>
         <div className="sidebar ">
           <nav className="nav-menu">
