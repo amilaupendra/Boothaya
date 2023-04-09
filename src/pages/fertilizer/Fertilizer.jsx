@@ -9,12 +9,13 @@ export default function Fertilizer() {
   const [fertilizerquantity, setFertilizerquantity] = useState("");
   const [fertilizers, setFertilizers] = useState([]);
 
-  const addfertilizer = () => {
+  const addfertilizer = (e) => {
+    e.preventDefault();
     Axios.post("http://localhost:4000/addfertilizer", {
       fertilizername: fertilizername,
       fertilizerquantity: fertilizerquantity,
     }).then((response) => {
-      if (response.data.length > 0) {
+      if (response.data) {
         // console.log(response.data);
         setFertilizers([...fertilizers, response.data[0]]);
         console.log(response.data);
@@ -28,7 +29,7 @@ export default function Fertilizer() {
     Axios.get("http://localhost:4000/fertilizers")
       .then((res) => setFertilizers(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [fertilizers]);
 
   const deleteFertilizer = (id) => {
     Axios.delete(`http://localhost:4000/delete/${id}`)

@@ -47,7 +47,7 @@ export default function Distribution() {
               <th>Distribution id</th>
               <th>Farmer Id</th>
               <th>Fertilizer Id</th>
-              <th>Weight</th>
+              <th>Weight (Kg)</th>
             </tr>
             </thead>
 

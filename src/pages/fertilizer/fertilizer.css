@@ -18,7 +18,7 @@
     height: 200px;
     margin: auto;
     border-radius: 10%;
-    background-color: rgb(248, 248, 248);
+    background-color: rgba(77, 73, 73, 0.164);
 }
 
 .add-fertilizer form input{

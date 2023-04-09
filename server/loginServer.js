@@ -117,7 +117,7 @@ app.post("/addfarmer", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.send("Values Inserted");
+        res.send(result);
       }
     }
   );
@@ -131,6 +131,7 @@ app.delete('/deletefarmer', (req, res)=>{
       console.log("err");
     }else{
       res.send(result);
+      console.log(result);
     }
   });
 });

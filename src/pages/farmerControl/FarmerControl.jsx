@@ -11,6 +11,7 @@ export default function FarmerControl() {
   const [quantity, setQuantity] = useState("");
   const [id, setId] = useState("");
   const [farmers, setFarmers] = useState([]);
+  const [farmer, setFarmer] =useState([]);
 
   //add farmer
   const addfarmer = (e) => {
@@ -21,9 +22,9 @@ export default function FarmerControl() {
       acres: acres,
       quantity: quantity,
     }).then((response) => {
-      if (response.data.length > 0) {
-        console.log(response.data);
+      if (response.data) {
         setFarmers([...farmers, response.data[0]]);
+        console.log(response.data);
       } else {
         alert("please check there cannot be empty input fields");
       }
@@ -37,7 +38,7 @@ export default function FarmerControl() {
     })
       .then((response) => {
         console.log(response.data);
-        setFarmers(farmers.filter((farmer) => farmer.farmer_id !== id));
+        setFarmers(farmers.filter((farmer) => farmer.farmer_id !== id)); //after deletion re-arrange farmer array removing deleted object
       })
       .catch((error) => {
         console.log(error);
@@ -75,7 +76,7 @@ export default function FarmerControl() {
   //show farmer table
   useEffect(() => {
     Axios.get("http://localhost:4000/showfarmers")
-      .then((res) => setFarmers(res.data))
+      .then((res) => setFarmer(res.data))
       .catch((err) => console.log(err));
   }, [farmers]);
 
@@ -159,7 +160,7 @@ export default function FarmerControl() {
             </thead>
 
             <tbody>
-              {farmers.map((data, i) => (
+              {farmer.map((data, i) => (
                 <tr key={i}>
                   <td>{data.farmer_id}</td>
                   <td>{data.farmer_fname}</td>
