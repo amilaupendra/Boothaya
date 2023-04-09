@@ -3,8 +3,8 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 
-app.use(cors());
-app.use(express.json());
+app.use(cors()); //security feature
+app.use(express.json()); //used to parse JSON data sent in the request body of HTTP POST requests
 
 const db = mysql.createConnection({
   user: "root",
