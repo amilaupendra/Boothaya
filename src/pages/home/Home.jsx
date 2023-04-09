@@ -21,7 +21,7 @@ export default function Home() {
     slider.scrollLeft = slider.scrollLeft + 600;
   };
 
-
+//get notices from backend
   useEffect(()=>{
     Axios.get("http://localhost:4000/shownotices")
     .then((response)=>{
@@ -48,7 +48,9 @@ export default function Home() {
     <FaChevronCircleRight className='rightslidericon' onClick={slideRight} />
     </div>
 
+    {/* Notices */}
     <div className="noticeboard">
+      <h3 style={{textAlign: 'center'}}>Notices</h3>
       <ul>
       {notices.map((notice, i) =>{
         return(

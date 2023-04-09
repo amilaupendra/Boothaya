@@ -31,6 +31,8 @@ export default function Fertilizer() {
       .catch((err) => console.log(err));
   }, [fertilizers]);
 
+
+  //delete fertilizer
   const deleteFertilizer = (id) => {
     Axios.delete(`http://localhost:4000/delete/${id}`)
       .then((response) => {

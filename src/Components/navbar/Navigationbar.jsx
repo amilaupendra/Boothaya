@@ -5,6 +5,7 @@ import { NavItem } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import './navbar.css'
+import { GiFarmer} from 'react-icons/gi';
 
 
 export default function Navigationbar() {
@@ -12,7 +13,7 @@ export default function Navigationbar() {
     <div className="navbar-div">
       <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
         <Container fluid>
-          <Navbar.Brand href="/">Farmer</Navbar.Brand>
+          <Navbar.Brand href="/"><GiFarmer/>Farmer</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto">
